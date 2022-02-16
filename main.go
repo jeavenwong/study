@@ -2,13 +2,17 @@ package main
 
 import (
 	"fmt"
-	"main/modules"
-	"main/test"
+
+	log "github.com/jeanphorn/log4go"
+
+	"github.com/jeavenwong/study/routers"
 )
 
 func main() {
-	str := "hello, world!"
-	fmt.Println(str)
-	test.TestStr(str)
-	modules.TestA(str)
+	fmt.Println("start program...")
+	log.LoadConfiguration("./log.json")
+	//log.LOGGER("DEBUG").Debug("test print log, %s", "hello, world!")
+	log.Debug("test print log, %s", "hello, world!")
+	routers.Init()
+	routers.Run()
 }
